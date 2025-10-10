@@ -15,13 +15,12 @@ class OAuthControllerTest extends TestCase
             ], 200),
         ]);
 
-        // Request params
         $params = [
             'shop' => 'test-shop.myshopify.com',
             'code' => '123',
         ];
 
-        // ✅ Compute HMAC the same way Shopify does
+        // Compute HMAC the same way Shopify does
         ksort($params);
         $queryString = urldecode(http_build_query($params));
         $hmac = hash_hmac('sha256', $queryString, config('shopify.secret'));
@@ -29,10 +28,8 @@ class OAuthControllerTest extends TestCase
         // Build full query string with hmac param
         $query = http_build_query(array_merge($params, ['hmac' => $hmac]));
 
-        // Hit the callback endpoint
         $response = $this->getJson("/api/shopify/callback?{$query}");
 
-        // ✅ Should pass now
         $response->assertStatus(200);
 
         $this->assertDatabaseHas('shopify_stores', [
