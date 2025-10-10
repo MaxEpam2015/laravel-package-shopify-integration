@@ -9,6 +9,8 @@
         }
     },
     "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0|^11.0|^12.0",
         "guzzlehttp/guzzle": "^7.8"
     },
     "extra": {
@@ -28,6 +30,7 @@
     },
     "require-dev": {
         "orchestra/testbench": "^10.6",
-        "pestphp/pest": "*"
+        "pestphp/pest": "*",
+        "phpunit/phpunit": "^12.0"
     }
 }
