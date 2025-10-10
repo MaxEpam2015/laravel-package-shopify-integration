@@ -138,6 +138,8 @@ https://your-store.myshopify.com/admin/oauth/authorize?client_id=your-key&scope=
 ```
 and approve the permissions.
 After the redirect, your Laravel app will automatically store the access token.
+
+### 🧩 Directory structure
 ```
 ShopifyIntegration/
 ├── config/shopify.php
