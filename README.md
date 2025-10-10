@@ -30,7 +30,7 @@ to create your app and get credentials
 ### 🧩 Step 1: Install the Package
 From your Laravel project root:
 ```
-composer require max/shopify-integration
+composer require maxepam2015/shopify-integration
 ```
 
 If developing locally via path repository, ensure your main project composer.json includes:
