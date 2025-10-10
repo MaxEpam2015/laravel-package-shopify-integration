@@ -1,0 +1,33 @@
+{
+    "name": "max/shopify-integration",
+    "version": "1.0.0",
+    "description": "A Laravel package for integrating Shopify API",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Max\\ShopifyIntegration\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Max\\ShopifyIntegration\\ShopifyServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Max\\ShopifyIntegration\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.6",
+        "pestphp/pest": "*"
+    }
+}
