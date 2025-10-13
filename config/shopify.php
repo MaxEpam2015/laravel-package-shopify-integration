@@ -1,6 +1,27 @@
 <?php
 
 return [
-    'base_url' => env('SHOPIFY_API_URL', 'https://your-store.myshopify.com/admin/api/2025-01'),
-    'access_token' => env('SHOPIFY_ACCESS_TOKEN'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Shopify App Credentials
+    |--------------------------------------------------------------------------
+    */
+    'key' => env('SHOPIFY_API_KEY'),
+    'secret' => env('SHOPIFY_API_SECRET'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | OAuth Configuration
+    |--------------------------------------------------------------------------
+    */
+    'scopes' => env('SHOPIFY_API_SCOPES', 'read_products'),
+    'redirect_uri' => env('SHOPIFY_REDIRECT_URI'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | API Configuration
+    |--------------------------------------------------------------------------
+    */
+    'api_version' => env('SHOPIFY_API_VERSION', '2025-01'),
 ];

@@ -5,6 +5,7 @@ use Max\ShopifyIntegration\Http\Controllers\OAuthController;
 use Max\ShopifyIntegration\Http\Controllers\ProductController;
 
 Route::prefix('api/shopify')->group(function () {
+    Route::get('/install', [OAuthController::class, 'install']);
     Route::get('/callback', [OAuthController::class, 'callback']);
-    Route::get('/products', [ProductController::class, 'index']);
+    Route::middleware(['auth.shopify'])->get('/products', [ProductController::class, 'index']);
 });

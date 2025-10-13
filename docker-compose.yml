@@ -1,0 +1,8 @@
+services:
+  app:
+    image: laravelsail/php83-composer
+    container_name: shopify-package
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    command: bash -c "composer install --prefer-dist --no-progress --no-interaction && vendor/bin/phpunit"

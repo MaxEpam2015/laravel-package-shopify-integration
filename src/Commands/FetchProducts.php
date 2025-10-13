@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Max\ShopifyIntegration\Commands;
 
 use Illuminate\Console\Command;

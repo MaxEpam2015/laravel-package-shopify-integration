@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Max\ShopifyIntegration\Services;
 
 use Illuminate\Support\Facades\Http;
@@ -14,7 +16,7 @@ class ShopifyClient
     {
         $this->shop = $shop;
 
-        $store = ShopifyStore::where('shop', $shop)->first();
+        $store = ShopifyStore::firstWhere('shop', $shop);
 
         if (! $store) {
             throw new \Exception("Shop not connected: {$shop}");
@@ -23,9 +25,13 @@ class ShopifyClient
         $this->token = $store->access_token;
     }
 
+    /**
+     * Fetch products from the connected Shopify store.
+     */
     public function getProducts(int $limit = 10): array
     {
-        $url = "https://{$this->shop}/admin/api/2025-10/products.json?limit={$limit}";
+        $apiVersion = config('shopify.api_version', '2025-01');
+        $url = "https://{$this->shop}/admin/api/{$apiVersion}/products.json?limit={$limit}";
 
         $response = Http::withHeaders([
             'X-Shopify-Access-Token' => $this->token,
