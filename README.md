@@ -165,11 +165,11 @@ ShopifyIntegration/
 ### 🧪 Testing
 #### Option 1: Run Only the Package Tests
 ```
-php artisan test --testsuite=Feature --filter=ShopifyIntegration
+vendor/bin/phpunit
 ```
-#### Option 2: run All Tests (Package + App)
+#### Option 2: run Tests by docker (Package + App)
 ```
-composer test
+docker compose up
 ```
 From your Laravel project root:
 ### 🤝 Contributing
