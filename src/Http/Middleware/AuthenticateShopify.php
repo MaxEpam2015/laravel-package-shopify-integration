@@ -18,7 +18,7 @@ class AuthenticateShopify
             return response()->json(['error' => 'Missing ?shop parameter'], 400);
         }
 
-        $store = ShopifyStore::where('shop', $shop)->first();
+        $store = ShopifyStore::firstWhere('shop', $shop);
 
         if (! $store) {
             return response()->json([

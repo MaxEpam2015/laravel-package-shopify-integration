@@ -1,6 +1,6 @@
 {
     "name": "maxepam2015/shopify-integration",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "A Laravel package for integrating Shopify API",
     "license": "MIT",
     "type": "library",
@@ -36,6 +36,7 @@
         }
     },
     "require-dev": {
+        "orchestra/testbench": "^10.6",
         "phpunit/phpunit": "^12.0"
     }
 }

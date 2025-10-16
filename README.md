@@ -5,7 +5,7 @@
 🚀 Why Use This Package
 
 This package provides:
-✅ Deep Laravel integration (service providers, facades, middleware, artisan commands)
+✅ Deep Laravel integration (service providers, routers, requests, services, tests, middleware, artisan command, migration)
 🔐 Production-ready OAuth authentication and shop session management
 🧑‍💼 Multi-store token handling
 🧰 Easy access to Shopify REST and GraphQL APIs
@@ -18,7 +18,7 @@ With this package, you spend less time writing boilerplate and more time buildin
 
 Before you begin, make sure you have:
 
-* PHP 8.2+
+* PHP 8.3+
 * Laravel 10+
 * Composer installed
 * A [Shopify Partner Account](https://partners.shopify.com/)
@@ -91,7 +91,7 @@ The package includes a ready-to-use Eloquent model:
 ```php
 use Max\ShopifyIntegration\Models\ShopifyStore;
 
-$store = ShopifyStore::where('shop', 'your-store.myshopify.com')->first();
+$store = ShopifyStore::firstWhere('shop', 'your-store.myshopify.com');
 $token = $store->access_token;
 ```
 
@@ -147,15 +147,24 @@ ShopifyIntegration/
 ├── routes/api.php
 ├── src/
 │   ├── Models/ShopifyStore.php
-│   ├── Services/ShopifyClient.php
+│   ├── Services/
+│   │   ├── ShopifyClient.php
+│   │   ├── OAuthService.php
+│   │   └── OAuthService.php
 │   ├── Http/
 │   │   └── Controllers/
 │   │       ├── OAuthController.php
 │   │       └── ProductController.php
+│   │   └── Requests/
+│   │       ├── ShopifyCallbackRequest.php
+│   │       └── ShopifyInstallRequest.php
+│   │   └── Middleware/
+│   │       └── AuthenticateShopify.php
 │   └── ShopifyServiceProvider.php
 ├── tests/
 │   ├── TestCase.php
 │   ├── OAuthControllerTest.php
+│   ├── ShopifyClientTest
 │   └── ProductControllerTest.php
 ├── composer.json
 ├── phpunit.xml

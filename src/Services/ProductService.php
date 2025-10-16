@@ -9,7 +9,7 @@ class ProductService
 {
     public function getProductsForShop(string $shop): array
     {
-        $store = ShopifyStore::where('shop', $shop)->first();
+        $store = ShopifyStore::firstWhere('shop', $shop);
 
         if (! $store) {
             throw new \Exception('Shop not connected. Please complete OAuth.');
