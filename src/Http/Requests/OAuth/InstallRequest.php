@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Max\ShopifyIntegration\Http\Requests;
+namespace Max\ShopifyIntegration\Http\Requests\OAuth;
 
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShopifyInstallRequest extends FormRequest
+class InstallRequest extends FormRequest
 {
     public function authorize(): bool
     {

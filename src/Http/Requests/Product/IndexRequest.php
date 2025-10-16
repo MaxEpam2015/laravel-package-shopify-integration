@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Max\ShopifyIntegration\Http\Requests;
+namespace Max\ShopifyIntegration\Http\Requests\Product;
+
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShopifyCallbackRequest extends FormRequest
+class IndexRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,15 +18,14 @@ class ShopifyCallbackRequest extends FormRequest
     {
         return [
             'shop' => ['required', 'string', 'regex:/^[a-zA-Z0-9][a-zA-Z0-9\-]*\.myshopify\.com$/'],
-            'code' => ['required', 'string'],
-            'hmac' => ['required', 'string'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'shop.regex' => 'Invalid shop domain format.',
+            'shop.required' => 'The ?shop parameter is required.',
+            'shop.regex' => 'The shop parameter must be a valid Shopify domain (e.g., my-store.myshopify.com).',
         ];
     }
 }

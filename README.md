@@ -150,14 +150,17 @@ ShopifyIntegration/
 │   ├── Services/
 │   │   ├── ShopifyClient.php
 │   │   ├── OAuthService.php
-│   │   └── OAuthService.php
+│   │   └── ProductService.php
 │   ├── Http/
 │   │   └── Controllers/
 │   │       ├── OAuthController.php
 │   │       └── ProductController.php
 │   │   └── Requests/
-│   │       ├── ShopifyCallbackRequest.php
-│   │       └── ShopifyInstallRequest.php
+│   │       └── OAuth/
+│   │           └── CallbackRequest.php
+│   │           └── InstallRequest.php
+│   │       └── Product/
+│   │           └── IndexRequest.php
 │   │   └── Middleware/
 │   │       └── AuthenticateShopify.php
 │   └── ShopifyServiceProvider.php

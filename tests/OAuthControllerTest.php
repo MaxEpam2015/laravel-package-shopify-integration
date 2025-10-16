@@ -11,7 +11,7 @@ class OAuthControllerTest extends TestCase
     {
         $response = $this->get('/api/shopify/install?shop=invalid-shop.com');
 
-        $response->assertStatus(302); // Laravel redirects on validation errors by default
+        $response->assertStatus(302);
         $this->assertStringContainsString('shop', session('errors')->first('shop'));
     }
 

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Max\ShopifyIntegration\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Max\ShopifyIntegration\Http\Requests\Product\IndexRequest;
 use Max\ShopifyIntegration\Services\ProductService;
 
 class ProductController extends Controller
@@ -16,9 +16,9 @@ class ProductController extends Controller
     {
     }
 
-    public function index(Request $request): JsonResponse
+    public function index(IndexRequest $request): JsonResponse
     {
-        $shop = $request->query('shop');
+        $shop = $request->shop;
 
         if (! $shop) {
             return response()->json(['error' => 'Missing ?shop parameter'], 400);

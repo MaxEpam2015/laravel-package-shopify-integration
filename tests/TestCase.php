@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        // Run your package migrations automatically
+        // Run package migrations automatically
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 }
